@@ -14,3 +14,11 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
   end
 end
+
+RSpec.describe User, "secure_password" do
+  it "has a secure password" do
+    user = User.new(email: "email@example.com", name: "name")
+
+    expect(user).to_not be_valid
+  end
+end
