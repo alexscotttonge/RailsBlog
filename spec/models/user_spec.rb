@@ -1,0 +1,16 @@
+require 'rails_helper'
+
+RSpec.describe User, type: :model do
+
+  it "user email can't be blank" do
+    user = User.new(email: "")
+
+    expect(user).to_not be_valid
+  end
+
+  it "user name can't be blank" do
+    user = User.new(email: "email@example.com", name: "")
+
+    expect(user).to_not be_valid
+  end
+end
