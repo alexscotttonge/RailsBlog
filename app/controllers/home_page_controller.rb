@@ -1,6 +1,5 @@
 class HomePageController < ApplicationController
 
-  def index
-    render html: 'Bloggo'
+  def home
   end
 end
