@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "signing in" do
-  scenario "signing in to the blog" do
+  scenario "user can sign in to the blog" do
     visit root_path
     click_on "Sign up to the blog"
 
@@ -12,5 +12,18 @@ RSpec.feature "signing in" do
     click_on "Create my account"
 
     expect(page).to have_content "The dude"
+  end
+
+  scenario "user can't sign in with invalid details" do
+    visit root_path
+    click_on "Sign up to the blog"
+
+    fill_in "user_name", with: "The dude"
+    fill_in "user_email", with: "duder@abiding.org"
+    fill_in "user_password", with: ""
+    fill_in "user_password_confirmation", with: ""
+    click_on "Create my account"
+
+    expect(page).to have_title "Sign up"
   end
 end
