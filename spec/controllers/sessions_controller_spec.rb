@@ -14,7 +14,7 @@ RSpec.describe SessionsController, type: :controller do
       it "renders the page with an error" do
         user = create :user
 
-        post :create, params: { session: { email: "", password: "" } }
+        post :create, params: { session: { email: user.email, password: "" } }
 
         expect(response).to render_template(:new)
         expect(flash[:danger]).to match(/Invalid email\/password combination/)
