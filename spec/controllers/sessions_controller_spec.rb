@@ -9,4 +9,17 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
+  describe "POST #create" do
+    context "when password is invalid" do
+      it "renders the page with an error" do
+        user = create :user
+
+        post :create, params: { session: { email: "", password: "" } }
+
+        expect(response).to render_template(:new)
+        expect(flash[:danger]).to match(/Invalid email\/password combination/)
+      end
+    end
+  end
+
 end
