@@ -7,7 +7,7 @@ RSpec.feature "logging in" do
     visit login_path
     fill_in "session_email", with: user.email
     fill_in "session_password", with: "nuh uh"
-    click_on "Log in"
+    click_button "Log in"
 
     expect(page).to have_css "h1", text: ("Log in")
   end
@@ -18,8 +18,8 @@ RSpec.feature "logging in" do
     visit login_path
     fill_in "session_email", with: user.email
     fill_in "session_password", with: user.password
-    click_on "Log in"
+    click_button "Log in"
 
-    expect(page).to have_css "h2", text: (user.email) 
+    expect(page).to have_css "h2", text: (user.email)
   end
 end
