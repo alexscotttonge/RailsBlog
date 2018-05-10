@@ -20,6 +20,16 @@ RSpec.describe SessionsController, type: :controller do
         expect(flash[:danger]).to match(/Invalid email\/password combination/)
       end
     end
+
+    context "when the login details are correct" do
+      it "renders the users details" do
+        user = create :user
+
+        post :create, params: { session: { email: user.email, password: user.password } }
+
+        expect(response).to redirect_to user
+      end
+    end
   end
 
 end
