@@ -19,4 +19,11 @@ RSpec.describe User, type: :model do
 
     expect(user).to_not be_valid
   end
+
+  it "user is saved correctly to the database" do
+    User.create(email: "email@example.com", name: "name",
+                    password: "letmein", password_confirmation: "letmein")
+
+    expect(User.count).to eq 1
+  end
 end
