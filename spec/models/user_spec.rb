@@ -21,8 +21,7 @@ RSpec.describe User, type: :model do
   end
 
   it "user is saved correctly to the database" do
-    User.create(email: "email@example.com", name: "name",
-                    password: "letmein", password_confirmation: "letmein")
+    create :user 
 
     expect(User.count).to eq 1
   end
