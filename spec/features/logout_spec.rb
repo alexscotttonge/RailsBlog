@@ -10,7 +10,7 @@ RSpec.feature "logging out" do
     click_button "Log in"
 
     within "header" do
-      click_on "/logout"
+      click_on "Log out"
     end
 
     expect(page).to have_css "h1", text: ("Log in")
