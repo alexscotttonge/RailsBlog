@@ -2,8 +2,7 @@ require "rails_helper"
 
 RSpec.feature "signing in" do
   scenario "user can sign in to the blog" do
-    visit root_path
-    click_on "Sign up to the blog"
+    visit signup_path
 
     fill_in "user_name", with: "The dude"
     fill_in "user_email", with: "duder@abiding.org"
@@ -15,8 +14,7 @@ RSpec.feature "signing in" do
   end
 
   scenario "user can't sign in with invalid details" do
-    visit root_path
-    click_on "Sign up to the blog"
+    visit signup_path
 
     fill_in "user_name", with: "The dude"
     fill_in "user_email", with: "duder@abiding.org"
