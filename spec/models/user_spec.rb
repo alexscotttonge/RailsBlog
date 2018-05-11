@@ -21,8 +21,12 @@ RSpec.describe User, type: :model do
   end
 
   it "user is saved correctly to the database" do
-    create :user 
+    create :user
 
     expect(User.count).to eq 1
   end
+end
+
+RSpec.describe User, "assocations" do
+  it { is_expected.to have_many :posts }
 end

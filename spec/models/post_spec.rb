@@ -29,3 +29,7 @@ RSpec.describe Post, type: :model do
     expect(post.id).to eq user.id
   end
 end
+
+RSpec.describe Post, "assocations" do
+  it { is_expected.to belong_to :user }
+end
