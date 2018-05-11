@@ -1,4 +1,6 @@
 FactoryBot.define do
+  sequence(:email) { |n| "user_#{n}@example.com" }
+
   factory :post do
     title "MyString"
     content "MyText"
@@ -7,7 +9,7 @@ FactoryBot.define do
 
   factory :user do
     name "The dude"
-    email "dudes@abides.org"
+    email
     password "bowling"
   end
 
