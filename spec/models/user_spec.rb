@@ -20,3 +20,16 @@ RSpec.describe User, type: :model do
     expect(User.count).to eq 1
   end
 end
+
+RSpec.describe User, "deleting users" do
+  context "when a user is deleted" do
+    it "deletes the blog posts associated with the user" do
+      user = create :user
+      user.posts.create(title: "Lovely jubbly", content: "Plates of meat")
+
+      user.destroy
+
+      expect(Post.count).to eq 0
+    end
+  end
+end
