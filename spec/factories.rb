@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :post do
     title "MyString"
     content "MyText"
-    user nil
+    user
   end
 
   factory :user do
