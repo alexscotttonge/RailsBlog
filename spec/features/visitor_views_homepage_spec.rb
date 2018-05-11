@@ -6,8 +6,8 @@ RSpec.feature "viewing homepage" do
 
     expect(page).to have_title "Blog"
 
-    visit signup_path
+    visit login_path
 
-    expect(page).to have_title "Sign up"
+    expect(page).to have_title "Log in"
   end
 end
