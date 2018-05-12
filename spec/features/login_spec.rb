@@ -20,6 +20,6 @@ RSpec.feature "logging in" do
     fill_in "session_password", with: user.password
     click_button "Log in"
 
-    expect(page).to have_css "h2", text: (user.email)
+    expect(page).to have_css "h1", text: (user.name)
   end
 end
