@@ -42,3 +42,10 @@ RSpec.describe Post, type: :model do
     expect(post.id).to eq user.id
   end
 end
+
+RSpec.describe Post, type: :model do
+  xit "user can delete a post" do
+    user = create :user
+    post = user.posts.create
+  end
+end
