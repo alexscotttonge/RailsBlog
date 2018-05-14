@@ -33,5 +33,24 @@ RSpec.feature "creating a blogpost" do
       expect(page).to have_title "Blog"
       expect(page).to have_content "Blog post deleted"
     end
+
+    it "user can edit a post" do
+      user = create :user
+      visit login_path
+
+      fill_in "session_email", with: user.email
+      fill_in "session_password", with: user.password
+      click_button "Log in"
+
+      fill_in "post_title", with: "xColor rocks"
+      fill_in "post_content", with: "Here are some reasons"
+      click_on "Post"
+      click_on "edit"
+
+      fill_in "post_content", with: "Here are 5 reasons"
+      click_on "Save changes"
+
+      expect(page).to have_content "Here are 5 reasons"
+    end
   end
 end
