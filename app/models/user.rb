@@ -4,4 +4,8 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
   validates :name, presence: true
   has_secure_password
+
+  def blog_posts
+    Post.where("user_id = ?", id)
+  end
 end

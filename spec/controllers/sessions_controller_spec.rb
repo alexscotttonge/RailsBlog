@@ -27,7 +27,7 @@ RSpec.describe SessionsController, type: :controller do
 
         post :create, params: { session: { email: user.email, password: user.password } }
 
-        expect(response).to redirect_to user
+        expect(response).to redirect_to root_path
       end
     end
   end
