@@ -16,6 +16,6 @@ end
 users = User.order(:created_at).take(1)
 3.times do
   title = Faker::Lorem.sentence(4)
-  content = Faker::Lorem.paragraphs(2)
+  content = Faker::Lorem.paragraphs(10)
   users.each { |user| user.posts.create!(title: title, content: content) }
 end
