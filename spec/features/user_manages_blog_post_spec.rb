@@ -16,6 +16,7 @@ RSpec.feature "creating a blogpost" do
 
       expect(page).to have_content "xColor rocks"
 
+      # clicking on the title renders the view for all blogs
       within "span.title" do
         click_on "xColor rocks"
       end
@@ -36,7 +37,7 @@ RSpec.feature "creating a blogpost" do
       click_on "Post"
       click_on "delete"
 
-      expect(page).to have_title "Blog"
+      expect(page).to have_title "Dashboard"
       expect(page).to have_content "Blog post deleted"
     end
 

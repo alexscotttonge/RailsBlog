@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "Blog post created!"
-      redirect_to root_url
+      redirect_to dashboard_path
     else
       render 'home_page/home'
     end
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
   def update
     if current_post.update(post_params)
-      redirect_to root_url
+      redirect_to dashboard_path
     else
       render 'edit'
     end
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   def destroy
     current_post.destroy
     flash[:success] = "Blog post deleted"
-    redirect_to root_url
+    redirect_to dashboard_path
   end
 
   private

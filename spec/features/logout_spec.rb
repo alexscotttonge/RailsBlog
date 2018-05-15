@@ -13,6 +13,6 @@ RSpec.feature "logging out" do
       click_on "Log out"
     end
 
-    expect(page).to have_css "h1", text: ("Log in")
+    expect(page).to have_css "h1", text: ("All blog posts")
   end
 end
