@@ -17,7 +17,6 @@ class PostsController < ApplicationController
   end
 
   def update
-
     if current_post.update(post_params)
       redirect_to root_url
     else
