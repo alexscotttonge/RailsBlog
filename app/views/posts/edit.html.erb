@@ -1,7 +1,7 @@
 <% provide(:title, "Edit blog post") %>
 <h1>Update your blog</h1>
 <div class="field">
-  <%= form_for(@post) do |f| %>
+  <%= form_for(post) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
     <%= f.text_field :title %>
     <%= f.text_area :content %>

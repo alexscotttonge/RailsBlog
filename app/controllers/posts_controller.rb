@@ -17,7 +17,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    current_post
+    render locals: { post: current_post }
+  end
+
+  def show
+    render locals: { post: current_post }
   end
 
   def update
@@ -29,7 +33,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
+    current_post.destroy
     flash[:success] = "Blog post deleted"
     redirect_to root_url
   end
@@ -41,11 +45,10 @@ class PostsController < ApplicationController
     end
 
     def correct_user
-      @post = current_user.posts.find_by(id: params[:id])
-      redirect_to root_url if @post.nil?
+      redirect_to root_url if current_post.nil?
     end
 
     def current_post
-      @post = current_user.posts.find_by(id: params[:id])
+      current_user.posts.find_by(id: params[:id])
     end
 end
