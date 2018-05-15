@@ -14,7 +14,13 @@ RSpec.feature "creating a blogpost" do
       fill_in "post_content", with: "Here are some reasons"
       click_on "Post"
 
-      expect(page).to have_content ("xColor rocks")
+      expect(page).to have_content "xColor rocks"
+
+      within "span.title" do
+        click_on "xColor rocks"
+      end
+
+      expect(page).to have_css "h1", text: "xColor rocks"
     end
 
     it "user can delete a post" do
