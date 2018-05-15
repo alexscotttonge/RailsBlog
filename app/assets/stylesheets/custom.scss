@@ -80,7 +80,7 @@ input {
   text-decoration: none;
 }
 
-/* posts */
+/* User posts */
 
 .post {
   list-style: none;
@@ -115,6 +115,34 @@ aside {
   textarea {
     height: 100px;
     margin-bottom: 5px;
+  }
+}
+
+/* Posts index */
+
+.posts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .title {
+    font-weight: bold;
+  }
+  .content {
+    display: block;
+    margin-left: 0px;
+    padding-top: 10px;
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 0px;
   }
 }
 
