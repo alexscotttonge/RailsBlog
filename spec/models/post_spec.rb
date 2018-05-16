@@ -37,9 +37,9 @@ RSpec.describe Post, type: :model do
 
   it "user id should be present" do
     user = create :user
-    post = user.posts.create(title: "My little pony", content: "Lovely mane")
+    post = user.posts.create
 
-    expect(post.id).to eq user.id
+    expect(post.user_id).to eq user.id
   end
 end
 
