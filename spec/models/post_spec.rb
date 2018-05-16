@@ -53,3 +53,13 @@ RSpec.describe Post, type: :model do
     expect(Post.count).to eq 0
   end
 end
+
+RSpec.describe Post, ".draft" do
+  it "saves a post as a draft" do
+    create :post, title: "xColor rocks", draft: true
+
+    draft_posts = Post.draft
+
+    expect(draft_posts.pluck(:title)).to eq ["xColor rocks"]
+  end
+end
