@@ -63,3 +63,12 @@ RSpec.describe Post, ".draft" do
     expect(draft_posts.pluck(:title)).to eq ["xColor rocks"]
   end
 end
+
+RSpec.describe Post, ".draft" do
+  it "saves a post as a draft by default" do
+    user = create :user
+    post = user.posts.create
+
+    expect(post.draft).to eq true
+  end
+end
