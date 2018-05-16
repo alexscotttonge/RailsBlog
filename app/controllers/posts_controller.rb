@@ -26,6 +26,7 @@ class PostsController < ApplicationController
 
   def update
     if current_post.update(post_params)
+      flash[:success] = "Blog post published"
       redirect_to dashboard_path
     else
       render 'edit'
@@ -41,7 +42,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :draft)
     end
 
     def correct_user

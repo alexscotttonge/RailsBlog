@@ -62,8 +62,8 @@ RSpec.feature "creating a blogpost" do
   end
 end
 
-RSpec.feature "user saves a draft post" do
-  context "when the user is logged in" do
+RSpec.feature "user creates a post" do
+  context "when it is saved as a draft" do
     it "the homepage doesn't render draft posts" do
       user = create :user
       visit login_path
@@ -79,6 +79,28 @@ RSpec.feature "user saves a draft post" do
       visit root_path
 
       expect(page).not_to have_content "xColor rocks"
+    end
+  end
+
+  context "when it is published" do
+    it "the homepage displays the post" do
+      user = create :user
+      visit login_path
+
+      fill_in "session_email", with: user.email
+      fill_in "session_password", with: user.password
+      click_button "Log in"
+
+      fill_in "post_title", with: "xColor rocks"
+      fill_in "post_content", with: "Here are some reasons"
+      click_on "Save as draft"
+      click_on "publish"
+
+      expect(page).to have_content "Blog post published"
+
+      visit root_path
+
+      expect(page).to have_content "xColor rocks"
     end
   end
 end
