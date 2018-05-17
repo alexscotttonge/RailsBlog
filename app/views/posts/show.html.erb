@@ -1,9 +1,9 @@
 <% provide(:title, post.title) %>
 <h1><%= post.title %></h1>
 <div class = "posts">
-  <span class="title"><%= post.title %></span>
+  <span class="title"><%= markdown(post.title) %></span>
   <span class="user">By <%= link_to post.user.name, "#" %></span>
-  <span class="content"><%= post.content %></span>
+  <span class="content"><%= markdown(post.content) %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
   </span>
