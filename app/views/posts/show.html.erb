@@ -12,7 +12,7 @@
     <strong>Uploads:</strong>
     <br>
     <% post.uploads.each do |upload| %>
-      <%= image_tag upload %>
+      <%= link_to image_tag(upload.variant(resize: "100x100")), upload %>
     <% end %>
   </p>
   <% end %>

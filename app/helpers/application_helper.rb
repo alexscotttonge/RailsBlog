@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def markdown(text)
     redcarpet(redcarpet_renderer).render(text).html_safe
   end

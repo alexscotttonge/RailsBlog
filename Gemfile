@@ -9,8 +9,8 @@ gem 'bootstrap-sass'
 gem "bootstrap-will_paginate"
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
+gem "mini_magick"
 gem 'pg'
-
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.0'
 gem "redcarpet"
