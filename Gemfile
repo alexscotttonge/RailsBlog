@@ -10,6 +10,7 @@ gem "bootstrap-will_paginate"
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'pg'
+
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.0'
 gem "redcarpet"
@@ -22,6 +23,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "factory_bot_rails"
+  gem "pry-byebug"
+  gem "pry-rails"
   gem 'rspec-rails'
 end
 

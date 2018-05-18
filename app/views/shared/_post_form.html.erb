@@ -5,5 +5,7 @@
     <%= f.text_area :content, placeholder:
         "This field supports markup e.g. <b>emphasise</b> your words" %>
   </div>
+  <%= f.label :uploads %>
+  <%= f.file_field :uploads %>
   <%= f.submit "Save as draft", class: "btn btn-primary" %>
 <% end %>

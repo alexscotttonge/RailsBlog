@@ -7,4 +7,13 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
   </span>
+  <% if post.uploads.attached? %>
+  <p>
+    <strong>Uploads:</strong>
+    <br>
+    <% post.uploads.each do |upload| %>
+      <%= image_tag upload %>
+    <% end %>
+  </p>
+  <% end %>
 </div>

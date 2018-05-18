@@ -72,3 +72,14 @@ RSpec.describe Post, ".draft" do
     expect(post.draft).to eq true
   end
 end
+
+RSpec.describe Post, "uploading a file" do
+  it "saves an uploaded file to Active Storage" do
+    user = create :user
+    post = user.posts.create(title: "My little pony", content: "Lovely mane")
+
+    saved_post = post.uploads.attach(io: File.open(Rails.root.join("spec", "support", "rails.png")), filename: 'rails.png', content_type: 'image/png')
+
+    expect(saved_post[0]).to be_an_instance_of ActiveStorage::Attachment
+  end
+end
