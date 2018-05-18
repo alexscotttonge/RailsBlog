@@ -1,14 +1,11 @@
 require "rails_helper"
+include LoggingUserIn
+
 
 RSpec.feature "creating a blogpost" do
   context "when the user is logged in" do
     it "user can create a blog post" do
-      user = create :user
-      visit login_path
-
-      fill_in "session_email", with: user.email
-      fill_in "session_password", with: user.password
-      click_button "Log in"
+      log_user_in
 
       fill_in "post_title", with: "xColor rocks"
       fill_in "post_content", with: "Here are some reasons"
@@ -25,12 +22,7 @@ RSpec.feature "creating a blogpost" do
     end
 
     it "user can delete a post" do
-      user = create :user
-      visit login_path
-
-      fill_in "session_email", with: user.email
-      fill_in "session_password", with: user.password
-      click_button "Log in"
+      log_user_in
 
       fill_in "post_title", with: "xColor rocks"
       fill_in "post_content", with: "Here are some reasons"
@@ -42,12 +34,7 @@ RSpec.feature "creating a blogpost" do
     end
 
     it "user can edit a post" do
-      user = create :user
-      visit login_path
-
-      fill_in "session_email", with: user.email
-      fill_in "session_password", with: user.password
-      click_button "Log in"
+      log_user_in
 
       fill_in "post_title", with: "xColor rocks"
       fill_in "post_content", with: "Here are some reasons"
@@ -65,12 +52,7 @@ end
 RSpec.feature "user creates a post" do
   context "when it is saved as a draft" do
     it "the homepage doesn't render draft posts" do
-      user = create :user
-      visit login_path
-
-      fill_in "session_email", with: user.email
-      fill_in "session_password", with: user.password
-      click_button "Log in"
+      log_user_in
 
       fill_in "post_title", with: "xColor rocks"
       fill_in "post_content", with: "Here are some reasons"
@@ -84,12 +66,7 @@ RSpec.feature "user creates a post" do
 
   context "when it is published" do
     it "the homepage displays the post" do
-      user = create :user
-      visit login_path
-
-      fill_in "session_email", with: user.email
-      fill_in "session_password", with: user.password
-      click_button "Log in"
+      log_user_in
 
       fill_in "post_title", with: "xColor rocks"
       fill_in "post_content", with: "Here are some reasons"

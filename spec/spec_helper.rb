@@ -1,5 +1,8 @@
 require 'simplecov'
 SimpleCov.start
+
+require_relative "features/feature_helpers/logging_user_in_helper.rb"
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
