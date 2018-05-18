@@ -1,5 +1,5 @@
 require "rails_helper"
-include LoggingUserIn
+include ManagingUser
 
 
 RSpec.feature "creating a blogpost" do
@@ -24,9 +24,7 @@ RSpec.feature "creating a blogpost" do
     it "user can delete a post" do
       log_user_in
 
-      fill_in "post_title", with: "xColor rocks"
-      fill_in "post_content", with: "Here are some reasons"
-      click_on "Save as draft"
+      fill_in_and_save_blog_draft
       click_on "delete"
 
       expect(page).to have_title "Dashboard"
@@ -36,9 +34,7 @@ RSpec.feature "creating a blogpost" do
     it "user can edit a post" do
       log_user_in
 
-      fill_in "post_title", with: "xColor rocks"
-      fill_in "post_content", with: "Here are some reasons"
-      click_on "Save as draft"
+      fill_in_and_save_blog_draft
       click_on "edit"
 
       fill_in "post_content", with: "Here are 5 reasons"
@@ -54,9 +50,7 @@ RSpec.feature "user creates a post" do
     it "the homepage doesn't render draft posts" do
       log_user_in
 
-      fill_in "post_title", with: "xColor rocks"
-      fill_in "post_content", with: "Here are some reasons"
-      click_on "Save as draft"
+      fill_in_and_save_blog_draft
 
       visit root_path
 
@@ -68,9 +62,7 @@ RSpec.feature "user creates a post" do
     it "the homepage displays the post" do
       log_user_in
 
-      fill_in "post_title", with: "xColor rocks"
-      fill_in "post_content", with: "Here are some reasons"
-      click_on "Save as draft"
+      fill_in_and_save_blog_draft
       click_on "publish"
 
       expect(page).to have_content "Blog post published"

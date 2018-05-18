@@ -11,7 +11,8 @@ module ApplicationHelper
   def redcarpet_renderer
     options = {
       hard_wrap: true,
-      autolink: true
+      autolink: true,
+      filter_html: true
     }
     Redcarpet::Render::HTML.new(options)
   end
