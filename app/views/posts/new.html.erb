@@ -1,0 +1,26 @@
+<% provide(:title, "Dashboard") %>
+  <% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-8">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="post_form">
+      <%= form_for(post) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="field">
+          <%= f.text_field :title, placeholder: "Title..." %>
+          <%= f.text_area :content, placeholder:
+              "This field supports markup e.g. **emphasise** your words" %>
+        </div>
+        <%= f.label :uploads %>
+        <%= f.file_field :uploads, multiple: true %>
+        <%= f.submit "Save as draft", class: "btn btn-primary" %>
+      <% end %>
+      </section>
+    </aside>
+    <div class="col-md-4">
+      <h3>Blogs</h3>
+      <%= render 'shared/blog_posts' %>
+    </div>
+<% end %>

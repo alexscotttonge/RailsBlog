@@ -6,13 +6,17 @@ class PostsController < ApplicationController
     @posts = Post.published.paginate(page: params[:page], per_page: 3)
   end
 
+  def new
+    render locals: { post: current_user.posts.build }
+  end
+
   def create
-    @post = current_user.posts.build(post_params)
-    if @post.save
-      flash[:success] = "Blog post created!"
-      redirect_to dashboard_path
+    post = current_user.posts.build(post_params)
+
+    if post.save
+      redirect_to new_post_path, success: "Blog post created!"
     else
-      render 'home_page/home'
+      render :new, locals: { post: post }
     end
   end
 
@@ -27,7 +31,7 @@ class PostsController < ApplicationController
   def update
     if current_post.update(post_params)
       flash[:success] = "Blog post published"
-      redirect_to dashboard_path
+      redirect_to new_post_path
     else
       render 'edit'
     end
@@ -36,7 +40,7 @@ class PostsController < ApplicationController
   def destroy
     current_post.destroy
     flash[:success] = "Blog post deleted"
-    redirect_to dashboard_path
+    redirect_to new_post_path
   end
 
   private

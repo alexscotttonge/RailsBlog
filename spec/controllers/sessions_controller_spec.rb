@@ -27,7 +27,7 @@ RSpec.describe SessionsController, type: :controller do
 
         post :create, params: { session: { email: user.email, password: user.password } }
 
-        expect(response).to redirect_to dashboard_path
+        expect(response).to redirect_to new_post_path
       end
     end
   end
