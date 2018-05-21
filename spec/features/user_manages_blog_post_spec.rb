@@ -30,18 +30,6 @@ RSpec.feature "creating a blogpost" do
       expect(page).to have_title "Dashboard"
       expect(page).to have_content "Blog post deleted"
     end
-
-    it "user can edit a post" do
-      log_user_in
-
-      fill_in_and_save_blog_draft
-      click_on "edit"
-
-      fill_in "post_content", with: "Here are 5 reasons"
-      click_on "Save changes"
-
-      expect(page).to have_content "Here are 5 reasons"
-    end
   end
 end
 
@@ -71,5 +59,40 @@ RSpec.feature "user creates a post" do
 
       expect(page).to have_content "xColor rocks"
     end
+  end
+end
+
+RSpec.feature "editing a post" do
+  xit "need to add method for attaching a file"
+  scenario "when there are attachments" do
+  end
+
+  scenario "editing a post from the show page" do
+    log_user_in
+
+    fill_in_and_save_blog_draft
+
+    click_on "publish"
+    expect(page).to have_content "Blog post published"
+
+    click_on "xColor rocks"
+    click_on "edit"
+
+    fill_in "post_content", with: "Here are 5 reasons"
+    click_on "Save changes"
+
+    expect(page).to have_content "Here are 5 reasons"
+  end
+
+  scenario "when there are no attachments" do
+    log_user_in
+
+    fill_in_and_save_blog_draft
+    click_on "edit"
+
+    fill_in "post_content", with: "Here are 5 reasons"
+    click_on "Save changes"
+
+    expect(page).to have_content "Here are 5 reasons"
   end
 end

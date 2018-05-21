@@ -8,3 +8,12 @@
     <%= f.submit "Save changes", class: "btn btn-primary" %>
   <% end %>
 </div>
+<% if post.uploads.attached? %>
+<p>
+  <strong>Uploads:</strong>
+  <br>
+  <% post.uploads.each do |upload| %>
+    <%= link_to image_tag(upload.variant(resize: "100x100")), upload %>
+  <% end %>
+</p>
+<% end %>
