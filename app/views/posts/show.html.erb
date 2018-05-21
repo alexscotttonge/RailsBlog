@@ -4,7 +4,7 @@
   <span class="title"><%= markdown(post.title) %></span>
   <span class="user">By <%= link_to post.user.name, "#" %></span>
   <span class="content"><%= markdown(post.content) %></span>
-  <span class="content"><%= link_to "edit", edit_post_path(post) %></span>
+  <%= link_to "edit", edit_post_path(post) %>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
   </span>
