@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    render locals: { post: current_user.posts.build }
+    render locals: { post: Post.new }
   end
 
   def create

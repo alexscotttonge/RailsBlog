@@ -2,7 +2,7 @@ require "rails_helper"
 include ManagingUser
 
 
-RSpec.feature "creating a blogpost" do
+RSpec.feature "creating a blog post" do
   context "when the user is logged in" do
     it "user can create a blog post" do
       log_user_in

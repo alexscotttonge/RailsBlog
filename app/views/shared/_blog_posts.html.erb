@@ -1,9 +1,9 @@
 <% if current_user.posts.any? %>
   <ol class="post">
-    <%= current_user.posts %>
+    <%= render current_user.posts %>
     <!-- Renders as below -->
-    <%#= render "posts/post", collection: current_user.posts, as: :post %>
-    <!-- EXCEPT THAT IT DOESN'T
+    <%#= render partial: "posts/post", collection: current_user.posts, as: :post %>
+    <!--
     Rails should knows to look for the _post partial in views/posts because <thead>
       result of iterating over current_user.blog_posts is an array with parameter
       |post|
