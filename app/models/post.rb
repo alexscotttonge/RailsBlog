@@ -7,6 +7,6 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   default_scope -> { order(created_at: :desc) }
-  scope :draft, -> { where(draft: true) }
-  scope :published, -> { where(draft: false) }
+  scope :draft, -> { where(published: false) }
+  scope :published, -> { where(published: true) }
 end

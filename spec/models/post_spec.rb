@@ -54,22 +54,22 @@ RSpec.describe Post, type: :model do
   end
 end
 
-RSpec.describe Post, ".draft" do
-  it "saves a post as a draft" do
-    create :post, title: "xColor rocks", draft: true
+RSpec.describe Post, ".published" do
+  it "saves a published post" do
+    create :post, title: "xColor rocks", published: true
 
-    draft_posts = Post.draft
+    published_posts = Post.published
 
-    expect(draft_posts.pluck(:title)).to eq ["xColor rocks"]
+    expect(published_posts.pluck(:title)).to eq ["xColor rocks"]
   end
 end
 
-RSpec.describe Post, ".draft" do
+RSpec.describe Post, ".published" do
   it "saves a post as a draft by default" do
     user = create :user
     post = user.posts.create
 
-    expect(post.draft).to eq true
+    expect(post.published).to eq false
   end
 end
 
