@@ -3,6 +3,10 @@
     <%= render current_user.blog_posts %>
     <!-- Renders as below -->
     <%#= render "posts/post", collection: current_user.blog_posts, as: :post %>
-    <!-- The _post partial iterates over current_user.blog_posts to render each one -->
+    <!-- Rails knows to look for the _post partial in views/posts because <thead>
+      result of iterating over current_user.blog_posts is an array with parameter
+      |post|
+    The _post partial, with local var post, iterates over current_user.blog_posts
+    to render each one in the view -->
   </ol>
 <% end %>
