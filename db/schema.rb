@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2018_05_22_154600) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
+    t.string "title", default: "", null: false
+    t.text "content", default: "", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 2018_05_22_154600) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "name", default: "", null: false
+    t.string "email", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
