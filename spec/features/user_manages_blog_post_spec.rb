@@ -53,10 +53,6 @@ RSpec.feature "user creates a post" do
       fill_in_and_save_blog_draft
       click_on "publish"
 
-      expect(page).to have_content "Blog post published"
-
-      visit root_path
-
       expect(page).to have_content "xColor rocks"
     end
   end
@@ -73,7 +69,8 @@ RSpec.feature "editing a post" do
     fill_in_and_save_blog_draft
 
     click_on "publish"
-    expect(page).to have_content "Blog post published"
+
+    visit new_post_path
 
     click_on "xColor rocks"
     click_on "edit"

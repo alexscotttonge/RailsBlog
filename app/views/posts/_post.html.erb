@@ -8,7 +8,7 @@
       <%= link_to "delete", post, method: :delete,
                                        data: { confirm: "You sure?" } %>
       <%= link_to "edit", edit_post_path(post) %>
-      <%= link_to "publish", post_path({ id: post.id, post: { published: 1 }}), method: :put,
+      <%= link_to "publish", post_publishes_path(post), method: :post,
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
