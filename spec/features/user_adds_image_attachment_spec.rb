@@ -1,5 +1,5 @@
 require "rails_helper"
-include ManagingUser
+include ManagingUserHelper
 
 RSpec.feature "adding an image to a blog post" do
   context "when there is an attachment" do

@@ -1,4 +1,4 @@
-module ManagingUser
+module ManagingUserHelper
   def log_user_in
     user = create :user
     visit login_path

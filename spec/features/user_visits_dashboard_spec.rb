@@ -1,5 +1,5 @@
 require "rails_helper"
-include ManagingUser
+include ManagingUserHelper
 
 RSpec.feature "visiting the dashboard" do
   context "when the user is logged in" do

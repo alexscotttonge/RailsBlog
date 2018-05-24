@@ -1,5 +1,5 @@
 require "rails_helper"
-include ManagingUser
+include ManagingUserHelper
 
 
 RSpec.feature "creating a blog post" do
