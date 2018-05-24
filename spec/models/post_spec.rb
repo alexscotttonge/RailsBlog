@@ -4,12 +4,22 @@ RSpec.describe Post, "assocations" do
   it { is_expected.to belong_to :user }
 end
 
-RSpec.describe Post, "ordering of posts" do
+RSpec.describe Post, "default ordering of posts" do
   it "sorts blog posts by date with most recent posts first" do
     old_post = create(:post, created_at: 2.days.ago)
     recent_post = create(:post, created_at: 7.minutes.ago)
 
-    expect(Post.first).to eq recent_post
+    expect(Post.draft.first).to eq recent_post
+  end
+end
+
+RSpec.describe Post, ".published_on" do
+  it "sorts by order of published date" do
+    post_one = create(:post, created_at: 1.day.ago, published_on: 15.minutes.ago)
+    post_two = create(:post, created_at: 2.days.ago, published_on: 10.minutes.ago)
+    post_three = create(:post, created_at: 3.days.ago, published_on: 5.minutes.ago)
+
+    expect(Post.published_on.first).to eq post_three
   end
 end
 

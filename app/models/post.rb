@@ -6,7 +6,11 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  default_scope -> { order(created_at: :desc) }
-  scope :draft, -> { where(published: false) }
+  scope :draft, -> { where(published: false).order(created_at: :desc) }
   scope :published, -> { where(published: true) }
+  scope :published_on, -> { order(published_on: :desc)}
+
+   # def self.published_on
+   #   order(published_on: :desc)
+   # end
 end
