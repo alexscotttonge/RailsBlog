@@ -9,12 +9,9 @@
     Posted <%= time_ago_in_words(post.created_at) %> ago.
   </span>
   <% if post.uploads.attached? %>
-  <p>
-    <strong>Uploads:</strong>
-    <br>
+    <h5>Uploads:</h5>
     <% post.uploads.each do |upload| %>
       <%= link_to image_tag(upload.variant(resize: "100x100")), upload %>
     <% end %>
-  </p>
   <% end %>
 </div>
