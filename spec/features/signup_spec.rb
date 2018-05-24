@@ -10,7 +10,7 @@ RSpec.feature "signing in" do
     fill_in "user_password_confirmation", with: "10pin"
     click_on "Create my account"
 
-    expect(page).to have_content "The dude"
+    expect(page).to have_title "Dashboard"
   end
 
   scenario "user can't sign in with invalid details" do
