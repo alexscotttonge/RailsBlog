@@ -3,7 +3,9 @@ class PostsController < ApplicationController
   before_action :correct_user,   only: [:destroy, :edit]
 
   def index
-    @posts = Post.published.paginate(page: params[:page], per_page: 3)
+    posts = Post.published.paginate(page: params[:page], per_page: 3)
+
+    render locals: { posts: posts}
   end
 
   def new
